@@ -32,6 +32,19 @@ public class c4 {
         }
     }
 
+    boolean isSorted(Node head){
+        int x = Integer.MIN_VALUE;
+        Node p = head;
+        while (p != null){
+            if(p.data < x){
+                return false;
+            }
+            x = p.data;
+            p=p.next;
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         c4 list = new c4();
         list.head = new Node(10);
@@ -43,6 +56,7 @@ public class c4 {
         list.head.next.next.next.next.next.next = new Node(14);
 
         list.printList(head);
+        System.out.println(list.isSorted(head));
         list.remove_duplicates(head);
         System.out.println("after duplicates removal");
         list.printList(head);
