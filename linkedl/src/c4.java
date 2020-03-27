@@ -45,10 +45,23 @@ public class c4 {
         return true;
     }
 
+    boolean is_sorted(Node head){
+        Node ptr1 = head;
+        if (ptr1 == null || ptr1.next == null) {
+            return true;
+        }
+//        if (ptr1.data<ptr1.next.data){
+//            isSorted(head.next);
+//        }else{
+//            return false;
+//        }
+        return ((ptr1.data<ptr1.next.data) && isSorted(head.next));
+    }
+
     public static void main(String[] args) {
         c4 list = new c4();
         list.head = new Node(10);
-        list.head.next = new Node(11);
+        list.head.next = new Node(16);
         list.head.next.next = new Node(11);
         list.head.next.next.next = new Node(11);
         list.head.next.next.next.next = new Node(12);
